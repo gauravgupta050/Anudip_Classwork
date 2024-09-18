@@ -1,0 +1,60 @@
+=> Can we have a class as static?
+The top-level class cannot be declare as static. The static modifier is applicable only to nested classes within an outer class.
+
+=> which modifiers are allow with a class?
+Top-Level Class Modifiers: public, abstract, final
+Nested Class Modifiers: static, private, protected (if nested)
+
+=> Create a Bank class and declare an instance variable named amount of type double.Create parameterized constructor to initialize variable “amount” with value 10000.Create two methods withdraw(double withdrawalAmount) and deposit(double depositAmount).Calculate withdrawal based on some condition (using ternary operator) like If amount is sufficient then “withdraw successful” message will be printed on the console and amount should be updated after withdraw. Later on, deposit 5000 in the account balance.At the end display total balance on the console.
+
+public class Bank {
+    private double amount;
+
+    public Bank(double initialAmount) {
+        this.amount = initialAmount;
+    }
+
+    public void withdraw(double withdrawalAmount) {
+        String message = (amount >= withdrawalAmount) ? "Withdraw successful" : "Insufficient funds";
+        
+        if (amount >= withdrawalAmount) {
+            amount -= withdrawalAmount;
+        }
+
+        System.out.println(message);
+    }
+    public void deposit(double depositAmount) {
+        amount += depositAmount;
+    }
+
+    public void displayBalance() {
+        System.out.println("Total balance: " + amount);
+    }
+
+    public static void main(String[] args) {
+        Bank myBankAccount = new Bank(10000);
+
+        myBankAccount.withdraw(12000); 
+        myBankAccount.deposit(5000);
+
+        myBankAccount.displayBalance();
+    }
+}
+
+=>  Write a program to input two numbers and find the maximum between two numbers using the conditional/ternary operator.
+
+import java.util.Scanner;
+
+public class MaxOfTwoNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+        int max = (num1 > num2) ? num1 : num2;
+        System.out.println("The maximum of " + num1 + " and " + num2 + " is: " + max);
+    }
+}
+
+
